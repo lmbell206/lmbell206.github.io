@@ -1,0 +1,240 @@
+<!doctype html>
+
+<head>
+<title>Responsive Teacher Tools</title>
+<style>
+
+html, body{
+	width: 100%;
+}
+
+div.educational_apps{
+	opacity:0.7;
+	background:#00CC66;
+	position:relative;
+	left:0px;
+	width:90%;
+	align-items: center;
+}
+
+div.music_apps{
+	opacity:0.7;
+	background:#FF6666;
+	position:relative;
+	left:0%;
+	width:90%;
+	align-items: center;
+
+}
+
+
+div.game_apps{
+	opacity:0.7;
+	background:#FFFF00;
+	position:relative;
+	left:0px;
+	width:90%;
+	align-items: center;
+}
+
+div.centered {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+	font-size: large;
+	font-family:verdana;
+	align:center;
+}
+
+.appbutton {
+	mouseover:"this.style ='font-size:x-large'";
+	mouseout:"this.style ='font-size:large'";
+}
+
+h {
+	font-size: x-large;
+	font-family:verdana;
+}
+
+</style>
+
+
+<script>
+
+colorcycle = function () {
+	color = 0;
+	colorInterval = setInterval(function(){
+
+		document.body.style.backgroundColor = 'hsl(' + color + ', 100%, 50%)';
+		color = color + 1;
+	}, 60);
+};
+
+
+//i can get the text to zoom on mouse over when i put this in the tag,  would like to add listener to all elements
+// function bigText(x){
+// 	x.style = 'font-size: x-large';
+// 	console.log('big?');
+// }
+//
+// function shrinkText(x){
+// 	x.style = 'font-size: large';
+// 	console.log('small?');
+// }
+//
+//
+//
+// window.onload=function(){
+// 	var a = document.getElementsByTagName('p');
+// 	for (var i = 0; i<3;i++){
+// 		console.log(a);
+// 		console.log(i);
+// 		a[i].addEventListener('onmouseover', bigText);
+// 		a[i].addEventListener('onmouseout', shrinkText);
+// 	};
+// };
+
+colorcycle();
+
+
+</script>
+
+</head>
+
+<body
+<div>
+<h> Landon Bell - Coding Portfolio </h>
+<p>  </p>
+
+</div>
+
+<div align=center>
+	<div class="game_apps" align=center>
+		<h> Games </h>
+		<a href="./alien_defender/alien_defender.html">
+			<p align=center> Wave Defender</p>
+		</a>
+			<p> Space Invaders Clone.  20 levels of gameplay! <p>
+
+		<a href="./cupcake_defender/index.html">
+			<p align=center> Cupcake Defender</p>
+		</a>
+			<p> Cupcake? theme.  Mobile-focused layout. <p>
+
+
+		<a href="circlesandexes.html">
+			<p align=center> Graphics </p>
+		</a>
+			<p> Assorted visualizations </p>
+		<a href="./rainsound/rainsounds.html">
+			<p align=center> Beep Drops </p>
+		</a>
+			<p> Controllable Visualization with Sound </p>
+		<a href="./raindrops/raindrops.html">
+			<p align=center> Rain Catch </p>
+		</a>
+			<p>  Real simple catching game.  Get the gold power-ups!  Includes touch screen controls. </p>
+		<br>
+
+
+	</div>
+
+<div class="educational_apps" align=center>
+	<h> Educational </h>
+
+	<a href="./nonsensewordgen/nonsense_word_generator_ver3.htm">
+		<p id="cvc_text" align=center> CVC Generator </p>
+	</a>
+		<p>  A generator for 3-4 sound nonsense words.  Slowly progresses along a developmental continuum.</p>
+
+	<a href="./nonsensewordgen/hf_word_generator.html">
+		<p id="cvc_text" align=center> Sight Words </p>
+	</a>
+	<p> A simple sight word generator </p>
+
+	<a href="./maketenwithtenframe/makefivewithtenframe.html">
+		<p> Make Five </p>
+	</a>
+		<p> Practice making five. </p>
+
+	<a href="./maketenwithtenframe/maketenwithtenframe.html">
+		<p> Make Ten </p>
+	</a>
+		<p> Practice making ten. </p>
+
+	<a href="./maketenwithtenframe/makenumbertotwenty.html">
+		<p> Compose Numbers to Twenty </p>
+	</a>
+		<p> Practice all number combinations within twenty. <p>
+
+	<a href="./stars-and-diamonds-comparing-values/stars-and-diamonds-compare.html">
+		<p> Compare Quantities </p>
+	</a>
+		<p> Identify more or fewer. <p>
+
+	<a href="./rectangles/perimeter.html">
+		<p> Rectangle Perimeter </p>
+	</a>
+		<p> Calculate the perimeter and area of rectangles.  Includes animation and sound.  Beginner and Advanced modes.
+</div>
+
+<div class="music_apps" align=center>
+	<h> Music </h>
+
+	<p>
+		<h> Tile Synths </h>
+	<br>
+	<a href="tile-pad-synth/index.html">
+		Instrument Mode
+	</a>
+	<p> Live instrument for touch screen. </p>
+	<br>
+
+	<a href="tile-loops-1000.html">
+		<h>Tile Loops 1000</h>
+	</a>
+	<p> Layer different sounds to create loops.  Touch interface. </p>
+	<br>
+
+	<a href="tile-pad-synth/index-zen-development.html">
+		<h>Sound Bath Mode</h>
+	</a>
+	<p> Generate a longform sound bath user-controlled or random.</p>
+	<br>
+
+	<div class="centered">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/YduiC1ObIcU" frameborder="0" allowfullscreen></iframe>
+	</div>
+	<p>  I made this demo using multiple instances of the tile synths. </p>
+	<a href="rainsound/xylophone_advanced.html">
+		<h> Xylophone </h>
+	</a>
+	<p>Sound Toy with pitch adjustment.</p>
+	<a href="rainsound/sequencer.html">
+		<p>---- Rainbow Sequencer ---- </p>
+	</a>
+	<p>  JQuery-based UI </p>
+	<a href="synthysteps/synthysteps-dev.html">
+		<h> Heat Bend Sequencer </h>
+	</a>
+	<p>  Expandable Synth Sequencer Structure.  Mostly bass tones rn. </p>
+	<br>
+
+	<br>
+
+
+	<!-- <a href="https://paypal.me/LandonBell">
+		PayPal Me!
+	</a> -->
+
+
+	</p>
+</div>
+</div>
+
+
+</body>
+</html>
