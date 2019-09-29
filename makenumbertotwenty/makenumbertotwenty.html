@@ -1,0 +1,248 @@
+<!doctype html>
+
+<html>
+<head>
+<style>
+
+button {
+	width:50px;
+	height:50px;
+
+}
+.myButton {
+	-moz-box-shadow: 0px 10px 14px -7px #3e7327;
+	-webkit-box-shadow: 0px 10px 14px -7px #3e7327;
+	box-shadow: 0px 10px 14px -7px #3e7327;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77b55a), color-stop(1, #429e6a));
+	background:-moz-linear-gradient(top, #77b55a 5%, #429e6a 100%);
+	background:-webkit-linear-gradient(top, #77b55a 5%, #429e6a 100%);
+	background:-o-linear-gradient(top, #77b55a 5%, #429e6a 100%);
+	background:-ms-linear-gradient(top, #77b55a 5%, #429e6a 100%);
+	background:linear-gradient(to bottom, #77b55a 5%, #429e6a 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77b55a', endColorstr='#429e6a',GradientType=0);
+	background-color:#77b55a;
+	-moz-border-radius:27px;
+	-webkit-border-radius:27px;
+	border-radius:27px;
+	border:1px solid #4b8f29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:28px;
+	font-weight:bold;
+	padding:6px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #5b8a3c;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #429e6a), color-stop(1, #77b55a));
+	background:-moz-linear-gradient(top, #429e6a 5%, #77b55a 100%);
+	background:-webkit-linear-gradient(top, #429e6a 5%, #77b55a 100%);
+	background:-o-linear-gradient(top, #429e6a 5%, #77b55a 100%);
+	background:-ms-linear-gradient(top, #429e6a 5%, #77b55a 100%);
+	background:linear-gradient(to bottom, #429e6a 5%, #77b55a 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#429e6a', endColorstr='#77b55a',GradientType=0);
+	background-color:#429e6a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+div.block {
+	background:#669900;
+	height:100px;width:100px;
+	position:absolute;
+}
+
+
+div.framebox{
+	background:#669900;
+	width:100px;
+	height:100px;
+	border:3px solid #aaaaaa;
+	position:absolute;
+}
+
+div.dragblock{
+	background:#FF0000;
+	width:100px;
+	height:100px;
+	border:3px solid #aaaaaa;
+	position:absolute;
+
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+var target;
+var random_number;
+var user_input;
+$(document).ready(function(){
+//	$( ".framebox" ).droppable();
+//	$( ".dragblock" ).draggable({snap: ".framebox"});
+	var points
+	var stars
+	stars = "  ";
+	points = 0;
+	var random_number
+	var user_input
+    $("#new_number").click(function(){
+
+		$("div").animate({
+			opacity:'0.7'
+		});
+		$("div").animate({
+			opacity:'1.0'
+		});
+
+		random_number = Math.floor((Math.random() * 11) + 1);
+		random_number = random_number-1;
+		random_target = random_number + Math.floor((Math.random() * 11) + 1);
+		target = random_target - 1;
+		$("#message").text( " How many more makes "   + target + "?" );
+		$(".framebox").css("background-color","#669900");
+		for (block_id = 20; block_id > random_number; block_id--) {
+			$("#block"+ block_id).animate({
+				opacity:'0.0'
+			});
+		}
+
+	});
+
+	$("#zero").click(function(){check(0);});
+
+	$("#one").click(function(){check(1);});
+
+	$("#two").click(function(){check(2);});
+
+	$("#three").click(function(){check(3);});
+
+	$("#four").click(function(){check(4);});
+
+	$("#five").click(function(){check(5);});
+
+	$("#six").click(function(){check(6);});
+
+	$("#seven").click(function(){check(7);});
+
+	$("#eight").click(function(){check(8);});
+
+	$("#nine").click(function(){check(9);});
+
+	$("#ten").click(function(){check(10);});
+
+	function check(user_input){
+
+		var combo = Number(user_input) + random_number;
+
+		$("#message").text( " " + random_number + " and " + user_input + " is " + combo +" .  You got it!");
+
+		if (combo ==  target) {
+			for (block_id = target; block_id > random_number; block_id--) {
+				$("#block" + block_id).css("background-color","orange");
+				$("#block"+ block_id).animate({
+					opacity:'0.9'
+				});
+
+			};
+			points = points + 1;
+			stars = ("<img style='height:50px;width:50px' src='star.png'>");
+			$("#star" + points).replaceWith(stars);
+			if (points == 10) {
+				window.location.href = "victory2.html";
+			}
+		} else {
+		$("#message").text(" " + user_input + " more makes " + (user_input + random_number) + ". "+ " How many more makes "   + target + " ?" );
+		};
+	}
+
+
+});
+
+
+</script>
+
+</head>
+
+<body>
+<div>
+<button type="button" id="new_number" class="myButton"></button>
+<h2 id="message" style="left:58px; top:10px; position:absolute;">  Click this button to begin. </h2>
+
+</div>
+<br>
+
+
+</div>
+<div id="block1" class="framebox"  style="left:10px"></div>
+<div id="block2" class="framebox"  style="left:110px"></div>
+<div id="block3" class="framebox"  style="left:210px"></div>
+<div id="block4" class="framebox"  style="left:310px"></div>
+<div id="block5" class="framebox"  style="left:410px"></div>
+
+<br><br><br><br><br><br>
+
+<div id="block6" class="framebox"  style="left:10px"></div>
+<div id="block7" class="framebox"  style="left:110px"></div>
+<div id="block8" class="framebox"  style="left:210px"></div>
+<div id="block9" class="framebox"  style="left:310px"></div>
+<div id="block10" class="framebox"  style="left:410px"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="block11" class="framebox"  style="left:10px"></div>
+<div id="block12" class="framebox"  style="left:110px"></div>
+<div id="block13" class="framebox"  style="left:210px"></div>
+<div id="block14" class="framebox"  style="left:310px"></div>
+<div id="block15" class="framebox"  style="left:410px"></div>
+
+<br><br><br><br><br><br>
+
+<div id="block16" class="framebox"  style="left:10px"></div>
+<div id="block17" class="framebox"  style="left:110px"></div>
+<div id="block18" class="framebox"  style="left:210px"></div>
+<div id="block19" class="framebox"  style="left:310px"></div>
+<div id="block20" class="framebox"  style="left:410px"></div>
+
+<br><br><br><br><br><br>
+<div id="star_container">
+<div id="star1" style="left:150px"><img style='height:50px;width:50px' src='nostar.png'></div>
+<div id="star2" style="left:200px; top:0px"></div>
+<div id="star3"  style="left:250px; top:0px"></div>
+<div id="star4" style="left:300px; top:0px"></div>
+<div id="star5" style="left:350px; top:0px"></div>
+<div id="star6" style="left:400px; top:0px"></div>
+<div id="star7" style="left:450px; top:0px"></div>
+<div id="star8" style="left:500px; top:0px"></div>
+<div id="star9" style="left:550px; top:0px"></div>
+<div id="star10" style="left:600px; top:0px"></div>
+</div>
+<a href="#" class="myButton">
+<button type="button" class="myButton" id="zero"> 0 </button>
+<button type="button" class="myButton" id="one"> 1 </button>
+<button type="button" class="myButton" id="two"> 2 </button>
+<button type="button" class="myButton" id="three"> 3 </button>
+<button type="button" class="myButton" id="four"> 4 </button>
+<button type="button" class="myButton" id="five"> 5 </button>
+<button type="button" class="myButton" id="six"> 6 </button>
+<button type="button" class="myButton" id="seven"> 7 </button>
+<button type="button" class="myButton" id="eight"> 8 </button>
+<button type="button" class="myButton" id="nine"> 9 </button>
+<button type="button" class="myButton" id="ten"> 10 </button>
+</a>
+<h1 id="victory_message"></h1>
+
+
+
+
+
+</body>
+</html>
