@@ -102,7 +102,7 @@ $(document).ready(function(){
 		random_number = random_number-1;
 		random_target = random_number + Math.floor((Math.random() * 11) + 1);
 		target = random_target - 1;
-		$("#message").text( " How many more makes "   + target + "?" );
+		$("#message").text( "You have "+random_number+".  How many more makes "   + target + "?" );
 		$(".framebox").css("background-color","#669900");
 		for (block_id = 20; block_id > random_number; block_id--) {
 			$("#block"+ block_id).animate({
@@ -155,7 +155,7 @@ $(document).ready(function(){
 				window.location.href = "victory2.html";
 			}
 		} else {
-		$("#message").text(" " + user_input + " more makes " + (user_input + random_number) + ". "+ " How many more makes "   + target + " ?" );
+		$("#message").text("Nope,  " + user_input + " more makes " + (user_input + random_number) + ". "+ " How many more makes "   + target + " ?" );
 		};
 	}
 
